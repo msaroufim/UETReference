@@ -11,13 +11,14 @@
      var uetq = uetq || [];
 </script>
 
+
 <h1>UET Reference Implementation Page </h1>
 <p>This is a example web page showing different UET functionality for Bing Ads, it is a live example companion of code discussed in <a href="https://msdn.microsoft.com/en-us/library/bing-ads-universal-event-tracking-uet-tags-analytics-scripts.aspx">MSDN: Managing Analytics with Universal Event Tracking </a> 
 
 </p> 
 
 <h1>Enabling and setting up UET </h1>
-<p>This reference webpage is even more useful if you consider using the bing tag manager which is a chrome extension that tells you whether you have correctly configured UET on your webpage. You should enter the below script in every html file you wish to track, it doesn't matter whether it's in the &lt head &gt or &lt body &gt. In fact this website actually has a working UET tag, come on fire up your chrome dev tools to check it out!
+<p>The first thing you need to do is add your UET script to to the html of your webpage: it doesn't matter whether it's in the &lt head &gt or &lt body &gt tag. This website in fact has a working UET tag which you can take a look at using the chrome developer tools in google chrome.
 
 
 <script>
@@ -58,11 +59,11 @@
     })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
 </script>
 
-<p>'bat.bing.com/bat.js' what makes it possible to track goal events. Take special note of the uetq array, all events that are triggered are pushed into a global uetq array. You may rename it but if it does not exist one will be created for you. Therefore a simple way to sanity check whether your custom events are being tracked is checking to see how many events were triggered and then take the difference with the number of custom events that you have set up. If the difference is 0 then all your tags are working correctly. After the events are being pushed to the global uetq array you can just check if the w array is non-empty, if it is then congrats you are now tracking goals using UET. </p>
+<p>'bat.bing.com/bat.js' is what makes it possible to track goal events. Take special note of the uetq array, all events that are triggered are pushed into a global uetq array. You may rename it but if it does not exist one will be created for you. Therefore a simple way to sanity check whether your custom events are being tracked is checking to see how many events were triggered and then take the difference with the number of custom events that you have set up. If the difference is 0 then all your tags are working correctly. After the events are being pushed to the global uetq array you can just check if the w array is non-empty, if it is then congrats you are now tracking goals using UET. </p>
 
 <h1>Using Javascript to capture events related to a goal </h1>
 <p>
-We still need to talk about custom events. Any interaction with your webpage that triggers an event can be pushed to the uetq queue. As example suppose we want to capture a button click event, we can have the button trigger an event to the uetq queue.
+We still need to talk about custom events. Any interaction with your webpage that triggers an event can be pushed to the uetq queue. As example suppose we want to capture a button click event, we can have the button trigger an event to the uetq queue. You should also inspect the webpage using your chrome developer tools to see the specific event that is pushed to the uetq queue once the below button is clicked.
 </p>
 
 <!-- <xmp>
